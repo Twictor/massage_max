@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
-    <title>Instagram Massage Posts</title>
+    <title>Body & Soul Massage — Instagram Posts</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -31,7 +32,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            padding: 40px 28px;
+            padding: 35px 28px 30px 28px;
             scroll-snap-align: start;
             overflow-y: auto;
         }
@@ -40,8 +41,60 @@
             flex: 1;
         }
 
+        /* ===== СТИЛИ ДЛЯ НАЗВАНИЯ САЛОНА (бамбук, зелень, природа) ===== */
+        .brand-header {
+            text-align: center;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #9BBF8F;
+            position: relative;
+        }
+
+        .brand-name {
+            font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+            font-size: 26px;
+            font-weight: 700;
+            font-style: italic;
+            letter-spacing: 1px;
+            color: #5A7D5A;
+            background: linear-gradient(135deg, #5A7D5A, #7DA37D);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 2px 2px 6px rgba(90, 125, 90, 0.15);
+            position: relative;
+        }
+
+        .brand-name::before {
+            content: "🎋";
+            font-size: 22px;
+            font-style: normal;
+            background: none;
+            -webkit-text-fill-color: #5A7D5A;
+            margin-right: 8px;
+            opacity: 0.8;
+        }
+
+        .brand-name::after {
+            content: "🎋";
+            font-size: 22px;
+            font-style: normal;
+            background: none;
+            -webkit-text-fill-color: #5A7D5A;
+            margin-left: 8px;
+            opacity: 0.8;
+        }
+
+        .brand-leaf {
+            font-size: 14px;
+            color: #8FBC8F;
+            letter-spacing: 3px;
+            margin-top: 5px;
+        }
+
+        /* Остальные стили */
         h1 {
-            font-size: 38px;
+            font-size: 36px;
             font-weight: 800;
             color: #4F2F1C;
             margin-bottom: 8px;
@@ -49,20 +102,20 @@
         }
 
         .subhead {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 500;
             color: #B87C4F;
             border-left: 4px solid #D9B48B;
             padding-left: 14px;
-            margin: 12px 0 18px 0;
+            margin: 10px 0 15px 0;
         }
 
         .price-item {
-            font-size: 20px;
+            font-size: 18px;
             line-height: 1.45;
             color: #3C2A1C;
             font-weight: 500;
-            margin: 6px 0;
+            margin: 5px 0;
         }
 
         .price-euro {
@@ -71,16 +124,16 @@
         }
 
         .service-list {
-            margin: 15px 0 10px 0;
+            margin: 12px 0 8px 0;
         }
 
         .check-list {
-            margin-top: 20px;
+            margin-top: 15px;
         }
 
         .check-item {
-            font-size: 18px;
-            margin: 8px 0;
+            font-size: 17px;
+            margin: 6px 0;
             color: #4F2F1C;
         }
 
@@ -88,77 +141,77 @@
             background: #D9B48B;
             padding: 10px 18px;
             border-radius: 50px;
-            font-size: 18px;
+            font-size: 17px;
             font-weight: 700;
             color: #2D1E12;
             display: inline-block;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .footer-divider {
             border-top: 2px solid #E1CFBC;
-            padding-top: 18px;
-            margin-top: 20px;
-            font-size: 16px;
+            padding-top: 15px;
+            margin-top: 15px;
+            font-size: 15px;
             color: #8F6846;
         }
 
         .standorte-block {
             background: #E7D5C0;
             border-radius: 28px;
-            padding: 18px;
+            padding: 16px;
             text-align: center;
-            margin: 15px 0;
+            margin: 12px 0;
         }
 
         .standorte-city {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 700;
             color: #4F2F1C;
-            margin: 8px 0;
+            margin: 6px 0;
         }
 
         .standorte-small {
-            font-size: 18px;
+            font-size: 17px;
             font-weight: 600;
             color: #B87C4F;
-            margin-top: 12px;
+            margin-top: 10px;
         }
 
         .grid-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 16px;
-            margin: 20px 0;
+            gap: 14px;
+            margin: 18px 0;
         }
 
         .zahl-circle {
-            font-size: 34px;
+            font-size: 32px;
             font-weight: 800;
             background: #D9B48B;
-            width: 54px;
-            height: 54px;
-            border-radius: 22px;
+            width: 50px;
+            height: 50px;
+            border-radius: 20px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            margin-right: 12px;
+            margin-right: 10px;
             color: #2D1E12;
         }
 
         .service-row {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
-            margin: 12px 0;
-            font-size: 18px;
+            gap: 10px;
+            margin: 10px 0;
+            font-size: 17px;
         }
 
         .two-columns {
             display: flex;
             flex-wrap: wrap;
-            gap: 20px;
-            margin: 15px 0;
+            gap: 18px;
+            margin: 12px 0;
         }
 
         .swipe-hint {
@@ -181,31 +234,37 @@
         }
 
         .phone-number {
-            font-size: 26px;
+            font-size: 24px;
             font-weight: 800;
             color: #B45A2E;
             letter-spacing: 1px;
-            margin-top: 10px;
+            margin-top: 8px;
         }
 
         @media (max-width: 480px) {
             .slide {
-                padding: 28px 20px;
+                padding: 25px 18px 20px 18px;
+            }
+            .brand-name {
+                font-size: 22px;
+            }
+            .brand-name::before, .brand-name::after {
+                font-size: 18px;
             }
             h1 {
-                font-size: 32px;
+                font-size: 28px;
             }
             .subhead {
-                font-size: 19px;
+                font-size: 18px;
             }
             .price-item {
-                font-size: 17px;
+                font-size: 16px;
             }
             .standorte-city {
-                font-size: 19px;
+                font-size: 18px;
             }
             .phone-number {
-                font-size: 22px;
+                font-size: 20px;
             }
         }
     </style>
@@ -216,6 +275,10 @@
     
     <!-- ==================== СЛАЙД 1 ==================== -->
     <div class="slide">
+        <div class="brand-header">
+            <div class="brand-name">Body & Soul Massage</div>
+            <div class="brand-leaf">✦ ✦ ✦ ✦ ✦</div>
+        </div>
         <div class="content">
             <h1>💆‍♀️ MASSAGE & PREISE</h1>
             <div class="subhead">PROFESSIONELL & ENTSPANNEND</div>
@@ -246,11 +309,15 @@
 
     <!-- ==================== СЛАЙД 2 ==================== -->
     <div class="slide">
+        <div class="brand-header">
+            <div class="brand-name">Body & Soul Massage</div>
+            <div class="brand-leaf">✦ ✦ ✦ ✦ ✦</div>
+        </div>
         <div class="content">
             <h1>📍 STANDORTE & MOBILER SERVICE</h1>
             
             <div class="standorte-block">
-                <div style="font-size: 20px; font-weight: 700; color: #B87C4F;">📍 MEINE STANDORTE</div>
+                <div style="font-size: 18px; font-weight: 700; color: #B87C4F;">📍 MEINE STANDORTE</div>
                 <div class="standorte-city">Wuppertal</div>
                 <div class="standorte-city">Bochum</div>
                 
@@ -275,6 +342,10 @@
 
     <!-- ==================== СЛАЙД 3 ==================== -->
     <div class="slide">
+        <div class="brand-header">
+            <div class="brand-name">Body & Soul Massage</div>
+            <div class="brand-leaf">✦ ✦ ✦ ✦ ✦</div>
+        </div>
         <div class="content">
             <h1>🎁 RUNDUM SORGLOS-PAKET</h1>
             
@@ -285,7 +356,7 @@
                 <div class="check-item">✔️ Entspannung bei Ihnen zu Hause</div>
             </div>
 
-            <div style="margin-top: 20px;">
+            <div style="margin-top: 18px;">
                 <div class="badge-gold" style="background:#B87C4F; color:white;">✨ Professionell & Zuverlässig</div>
             </div>
         </div>
@@ -296,12 +367,16 @@
 
     <!-- ==================== СЛАЙД 4 ==================== -->
     <div class="slide">
+        <div class="brand-header">
+            <div class="brand-name">Body & Soul Massage</div>
+            <div class="brand-leaf">✦ ✦ ✦ ✦ ✦</div>
+        </div>
         <div class="content">
             <div class="two-columns">
                 <div>
                     <span class="zahl-circle">1</span>
                     <strong>MASSAGE bei dir</strong><br>
-                    <span style="font-size: 16px;">ZU HAUSE</span>
+                    <span style="font-size: 15px;">ZU HAUSE</span>
                 </div>
                 <div>
                     <span class="zahl-circle">2</span>
@@ -309,7 +384,7 @@
                 </div>
             </div>
 
-            <p style="font-size: 16px; margin-bottom: 20px; line-height: 1.4; color:#4F2F1C;">
+            <p style="font-size: 15px; margin-bottom: 18px; line-height: 1.4; color:#4F2F1C;">
                 Ganzkörper • Lymphdrainage • Anti-Cellulite<br>
                 Hot Stone • Ayurveda • Lomi Lomi
             </p>
@@ -335,7 +410,7 @@
         <div class="footer-divider" style="border-top-color:#D9B48B; text-align: center;">
             📞 KONTAKT<br>
             <div class="phone-number">+49 174 5104705</div>
-            <span style="font-size: 14px;">📱 WhatsApp / Anruf / DM</span>
+            <span style="font-size: 13px;">📱 WhatsApp / Anruf / DM</span>
         </div>
     </div>
 </div>
