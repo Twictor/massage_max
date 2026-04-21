@@ -41,13 +41,11 @@
             flex: 1;
         }
 
-        /* Бамбуковый стиль для названия салона */
         .brand-header {
             text-align: center;
             margin-bottom: 15px;
             padding-bottom: 8px;
             border-bottom: 2px solid #9BBF8F;
-            position: relative;
         }
 
         .brand-name {
@@ -56,13 +54,10 @@
             font-weight: 700;
             font-style: italic;
             letter-spacing: 1px;
-            color: #5A7D5A;
             background: linear-gradient(135deg, #5A7D5A, #7DA37D);
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 2px 2px 6px rgba(90, 125, 90, 0.15);
-            position: relative;
         }
 
         .brand-name::before {
@@ -72,7 +67,6 @@
             background: none;
             -webkit-text-fill-color: #5A7D5A;
             margin-right: 8px;
-            opacity: 0.8;
         }
 
         .brand-name::after {
@@ -82,7 +76,6 @@
             background: none;
             -webkit-text-fill-color: #5A7D5A;
             margin-left: 8px;
-            opacity: 0.8;
         }
 
         .brand-leaf {
@@ -97,7 +90,6 @@
             font-weight: 800;
             color: #4F2F1C;
             margin-bottom: 8px;
-            line-height: 1.2;
         }
 
         .subhead {
@@ -120,14 +112,6 @@
         .price-euro {
             font-weight: 800;
             color: #B45A2E;
-        }
-
-        .service-list {
-            margin: 12px 0 8px 0;
-        }
-
-        .check-list {
-            margin-top: 15px;
         }
 
         .check-item {
@@ -198,14 +182,6 @@
             color: #2D1E12;
         }
 
-        .service-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin: 10px 0;
-            font-size: 17px;
-        }
-
         .two-columns {
             display: flex;
             flex-wrap: wrap;
@@ -229,7 +205,6 @@
             backdrop-filter: blur(5px);
             pointer-events: none;
             z-index: 10;
-            font-weight: 500;
         }
 
         .phone-number {
@@ -247,20 +222,11 @@
             .brand-name {
                 font-size: 22px;
             }
-            .brand-name::before, .brand-name::after {
-                font-size: 18px;
-            }
             h1 {
                 font-size: 28px;
             }
-            .subhead {
-                font-size: 18px;
-            }
             .price-item {
                 font-size: 16px;
-            }
-            .standorte-city {
-                font-size: 18px;
             }
             .phone-number {
                 font-size: 20px;
@@ -282,28 +248,24 @@
             <h1>💆‍♀️ MASSAGE & PREISE</h1>
             <div class="subhead">PROFESSIONELL & ENTSPANNEND</div>
             
-            <div class="service-list">
-                <div class="price-item">💆‍♂️ Ganzkörpermassage – 60 Min – <span class="price-euro">60€</span></div>
-                <div class="price-item">💆‍♀️ Rückenmassage – 40 Min – <span class="price-euro">35€</span></div>
-                <div class="price-item">🧘 Nacken & Schultern – 40 Min – <span class="price-euro">40€</span></div>
-                <div class="price-item">💧 Lymphdrainage – 60 Min – <span class="price-euro">70€</span></div>
-                <div class="price-item">🔥 Anti-Cellulite Massage – 70 Min – <span class="price-euro">80€</span></div>
-                <div class="price-item">⚡ Sportmassage – 85 Min – <span class="price-euro">80€</span></div>
-                <div class="price-item">✨ Gesichtsmassage + Peeling + Maske – <span class="price-euro">60€</span></div>
-                <div class="price-item">🕉️ Ayurveda Massage – 60 Min – <span class="price-euro">70€</span></div>
-                <div class="price-item">🌺 Lomi Lomi Massage – 60 Min – <span class="price-euro">70€</span></div>
-                <div class="price-item">🔥 Hot Stone Massage – 70 Min – <span class="price-euro">70€</span></div>
-            </div>
+            <div class="price-item">💆‍♂️ Ganzkörpermassage – 60 Min – <span class="price-euro">60€</span></div>
+            <div class="price-item">💆‍♀️ Rückenmassage – 40 Min – <span class="price-euro">35€</span></div>
+            <div class="price-item">🧘 Nacken & Schultern – 40 Min – <span class="price-euro">40€</span></div>
+            <div class="price-item">💧 Lymphdrainage – 60 Min – <span class="price-euro">70€</span></div>
+            <div class="price-item">🔥 Anti-Cellulite Massage – 70 Min – <span class="price-euro">80€</span></div>
+            <div class="price-item">⚡ Sportmassage – 85 Min – <span class="price-euro">80€</span></div>
+            <div class="price-item">✨ Gesichtsmassage + Peeling + Maske – <span class="price-euro">60€</span></div>
+            <div class="price-item">🕉️ Ayurveda Massage – 60 Min – <span class="price-euro">70€</span></div>
+            <div class="price-item">🌺 Lomi Lomi Massage – 60 Min – <span class="price-euro">70€</span></div>
+            <div class="price-item">🔥 Hot Stone Massage – 70 Min – <span class="price-euro">70€</span></div>
 
-            <div class="check-list">
+            <div style="margin-top: 15px;">
                 <div class="check-item">✔️ Alles inklusive</div>
                 <div class="check-item">✔️ Hochwertige Öle</div>
                 <div class="check-item">✔️ Entspannung garantiert</div>
             </div>
         </div>
-        <div class="footer-divider">
-            📩 Termine nach Vereinbarung
-        </div>
+        <div class="footer-divider">📩 Termine nach Vereinbarung</div>
     </div>
 
     <!-- ==================== СЛАЙД 2 ==================== -->
@@ -327,16 +289,10 @@
                 <div class="standorte-city">Umgebung</div>
             </div>
 
-            <div class="service-row">
-                <span>🏠 Ich komme zu Ihnen nach Hause</span>
-            </div>
-            <div class="service-row">
-                <span>⏱️ Bequem & Flexibel</span>
-            </div>
+            <div style="margin: 12px 0; font-size: 18px;">🏠 Ich komme zu Ihnen nach Hause</div>
+            <div style="font-size: 18px;">⏱️ Bequem & Flexibel</div>
         </div>
-        <div class="footer-divider">
-            📍 Termine nach Vereinbarung – ganz in deiner Nähe
-        </div>
+        <div class="footer-divider">📍 Termine nach Vereinbarung – ganz in deiner Nähe</div>
     </div>
 
     <!-- ==================== СЛАЙД 3 ==================== -->
@@ -359,45 +315,37 @@
                 <div class="badge-gold" style="background:#B87C4F; color:white;">✨ Professionell & Zuverlässig</div>
             </div>
         </div>
-        <div class="footer-divider">
-            📩 Jetzt Termin vereinbaren
-        </div>
+        <div class="footer-divider">📩 Jetzt Termin vereinbaren</div>
     </div>
 
-    <!-- ==================== СЛАЙД 4 (ИСПРАВЛЕННЫЙ) ==================== -->
+    <!-- ==================== СЛАЙД 4 ==================== -->
     <div class="slide">
         <div class="brand-header">
             <div class="brand-name">Body & Soul Massage</div>
             <div class="brand-leaf">✦ ✦ ✦ ✦ ✦</div>
         </div>
         <div class="content">
-            <div class="two-columns">
-                <div>
-                    <span class="zahl-circle">1</span>
-                    <strong>MASSAGE bei dir</strong><br>
-                    <span style="font-size: 15px;">ZU HAUSE</span>
-                </div>
-                <div>
-                    <span class="zahl-circle">2</span>
-                    <strong>Eine professionelle Sportmassage</strong>
-                </div>
+            <div>
+                <span class="zahl-circle">1</span>
+                <strong>MASSAGE bei dir</strong><br>
+                <span style="font-size: 15px;">ZU HAUSE</span>
             </div>
 
-            <p style="font-size: 15px; margin-bottom: 18px; line-height: 1.4; color:#4F2F1C;">
+            <p style="font-size: 16px; margin: 18px 0; line-height: 1.5; color:#4F2F1C;">
                 Ganzkörper • Lymphdrainage • Anti-Cellulite<br>
-                Hot Stone • Ayurveda • Lomi Lomi
+                Sportmassage • Hot Stone • Ayurveda • Lomi Lomi
             </p>
 
-            <div class="two-columns">
+            <div style="display: flex; flex-wrap: wrap; gap: 18px; margin: 12px 0;">
                 <div>
-                    <span class="zahl-circle">3</span>
+                    <span class="zahl-circle">2</span>
                     <strong>IHRE VORTEILE</strong><br>
                     🛋️ Mobiler Service<br>
                     🎁 Alles inklusive<br>
                     📅 Flexible Termine
                 </div>
                 <div>
-                    <span class="zahl-circle">4</span>
+                    <span class="zahl-circle">3</span>
                     <strong>JETZT</strong><br>
                     💰 PREISE<br>
                     📍 STANDORTE<br>
@@ -406,7 +354,7 @@
             </div>
         </div>
 
-        <div class="footer-divider" style="border-top-color:#D9B48B; text-align: center;">
+        <div class="footer-divider" style="text-align: center;">
             📞 KONTAKT<br>
             <div class="phone-number">+49 174 5104705</div>
             <span style="font-size: 13px;">📱 WhatsApp / Anruf / DM</span>
@@ -423,7 +371,6 @@
     if (container && hint) {
         container.addEventListener('scroll', function() {
             hint.style.opacity = '0';
-            hint.style.transition = 'opacity 0.4s';
             setTimeout(() => {
                 hint.style.display = 'none';
             }, 400);
