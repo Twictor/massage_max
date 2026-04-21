@@ -2,9 +2,8 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Instagram Carousel 4x1080 — Massage Brand</title>
-    <!-- html2canvas + JSZip -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Instagram Carousel — Massage Brand</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
     <style>
@@ -16,45 +15,92 @@
 
         body {
             background: #4a3727;
+            font-family: 'Segoe UI', 'Helvetica Neue', system-ui, -apple-system, sans-serif;
+            padding: 20px 0 40px 0;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            padding: 40px 20px;
-            font-family: 'Segoe UI', 'Helvetica Neue', 'Poppins', system-ui, -apple-system, sans-serif;
         }
 
-        /* Контейнер для всех слайдов (скрываем кнопкой? нет, показываем) */
+        /* Заголовок и кнопка */
+        .header {
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+        }
+
+        .header h2 {
+            color: #FDF7F0;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .btn-download {
+            background: #B87C4F;
+            border: none;
+            padding: 16px 32px;
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            border-radius: 60px;
+            cursor: pointer;
+            margin: 10px auto;
+            display: inline-block;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transition: 0.2s;
+            font-family: inherit;
+        }
+
+        .btn-download:active {
+            transform: scale(0.97);
+        }
+
+        .status {
+            font-size: 16px;
+            background: #2C1E12;
+            color: #FFE1B9;
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-align: center;
+            margin: 15px auto;
+            display: inline-block;
+        }
+
+        /* Горизонтальный скролл для слайдов на мобильных */
+        .carousel-scroll {
+            width: 100%;
+            overflow-x: auto;
+            overflow-y: hidden;
+            -webkit-overflow-scrolling: touch;
+            scroll-snap-type: x mandatory;
+            padding: 20px 0;
+        }
+
         .carousel-container {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 40px;
-            margin-bottom: 40px;
+            flex-direction: row;
+            gap: 20px;
+            padding: 0 20px;
+            width: max-content;
         }
 
-        /* Каждый слайд — точный 1080x1080, цвета бренда */
+        /* Каждый слайд — точный 1080x1080, НЕТ transform scale */
         .slide {
             width: 1080px;
             height: 1080px;
+            flex-shrink: 0;
+            scroll-snap-align: start;
             background: linear-gradient(135deg, #FDF7F0 0%, #F3E9DE 100%);
             border-radius: 40px;
-            box-shadow: 0 30px 40px -20px rgba(0,0,0,0.4);
+            box-shadow: 0 20px 35px -10px rgba(0,0,0,0.4);
             padding: 60px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             position: relative;
-            transition: all 0.2s;
         }
 
-        /* Брендовые цвета: акцентный золотисто-коричневый */
-        .brand-accent {
-            color: #B87C4F;
-        }
-        .brand-bg {
-            background: #E7D5C0;
-        }
+        /* Типография */
         h1 {
             font-size: 58px;
             font-weight: 800;
@@ -134,134 +180,135 @@
             margin-right: 20px;
             color: #2D1E12;
         }
-        .btn-download {
-            background: #B87C4F;
-            border: none;
-            padding: 18px 42px;
-            font-size: 28px;
-            font-weight: bold;
-            color: white;
-            border-radius: 60px;
-            cursor: pointer;
-            margin: 20px auto;
-            display: block;
-            box-shadow: 0 8px 18px rgba(0,0,0,0.2);
-            transition: 0.2s;
-            font-family: inherit;
-        }
-        .btn-download:hover {
-            background: #9B623C;
-            transform: scale(1.02);
-        }
-        .status {
-            font-size: 24px;
-            background: #2C1E12;
-            color: #FFE1B9;
-            padding: 12px 24px;
-            border-radius: 50px;
+
+        /* Подсказка для скролла */
+        .swipe-hint {
             text-align: center;
-            margin-top: 20px;
+            color: #FDF7F0;
+            font-size: 14px;
+            margin: 10px 0;
+            opacity: 0.8;
         }
+
         @media (max-width: 1100px) {
-            .slide { transform: scale(0.65); margin: -120px 0; }
-            body { gap: 0; }
+            body {
+                padding: 10px 0 30px 0;
+            }
+            .slide {
+                /* Сохраняем точные размеры 1080x1080, просто даём скролл */
+                width: 1080px;
+                height: 1080px;
+            }
+            h1 { font-size: 52px; }
+            .subhead { font-size: 30px; }
+            .price-item { font-size: 28px; }
+            .standorte-block { font-size: 28px; padding: 20px; }
         }
     </style>
 </head>
 <body>
 
-<div class="carousel-container" id="carouselContainer">
-    <!-- Слайд 1: Preise -->
-    <div class="slide" id="slide1">
-        <div>
-            <h1>💆‍♀️ MASSAGE & PREISE</h1>
-            <div class="subhead">PROFESSIONELL & ENTSPANNEND</div>
-            <div style="margin-top: 35px;">
-                <div class="price-item">✨ Ganzkörpermassage 60 Min — <span class="price-euro">60€</span></div>
-                <div class="price-item">✨ Rückenmassage 40 Min — <span class="price-euro">35€</span></div>
-                <div class="price-item">✨ Nacken & Schultern 40 Min — <span class="price-euro">40€</span></div>
-                <div class="price-item">💧 Lymphdrainage 60 Min — <span class="price-euro">70€</span></div>
-                <div class="price-item">🔥 Anti-Cellulite Massage 70 Min — <span class="price-euro">80€</span></div>
-            </div>
-        </div>
-        <div>
-            <div class="badge-gold">🌿 ALLES INKLUSIVE</div>
-            <div class="footer-divider">✅ Hochwertige Öle • Entspannung garantiert</div>
-        </div>
-    </div>
-
-    <!-- Слайд 2: Standorte + Mobiler Service -->
-    <div class="slide" id="slide2">
-        <div>
-            <h1>📍 STANDORTE</h1>
-            <div class="subhead" style="border-left-color:#B87C4F;">🚐 MOBILER SERVICE</div>
-            <div class="standorte-block">
-                Essen • Wuppertal • Düsseldorf<br>Köln • Umgebung
-            </div>
-            <div style="font-size: 32px; margin: 25px 0; display: flex; gap: 15px; flex-wrap: wrap;">
-                <span>🏠 Ich komme zu Ihnen nach Hause</span>
-                <span>⏱️ BEQUEM & FLEXIBEL</span>
-            </div>
-        </div>
-        <div class="footer-divider">
-            📍 Termine nach Vereinbarung – ganz in deiner Nähe
-        </div>
-    </div>
-
-    <!-- Слайд 3: Rundum Sorglos-Paket -->
-    <div class="slide" id="slide3">
-        <div>
-            <h1>🎁 RUNDUM SORGLOS-PAKET</h1>
-            <div class="grid-2">
-                <div class="check-item">✔️ Massagetisch</div>
-                <div class="check-item">✔️ Professionelle Öle</div>
-                <div class="check-item">✔️ Handtücher</div>
-                <div class="check-item">✔️ Zubehör</div>
-                <div class="check-item">✔️ Entspannung zu Hause</div>
-                <div class="check-item">✔️ Zuverlässig & sicher</div>
-            </div>
-        </div>
-        <div>
-            <div class="badge-gold" style="background:#B87C4F; color:white;">🔥 JETZT TERMIN VEREINBAREN</div>
-            <div class="footer-divider">PROFESSIONELL & ZUVERLÄSSIG</div>
-        </div>
-    </div>
-
-    <!-- Слайд 4: Leistungen, Vorteile, Kontakt -->
-    <div class="slide" id="slide4">
-        <div>
-            <div style="display: flex; align-items: baseline; flex-wrap: wrap; gap: 20px; margin-bottom: 25px;">
-                <div><span class="zahl-circle">1</span> <strong>MASSAGE bei dir</strong><br><span style="font-size: 26px;">ZU HAUSE</span></div>
-                <div><span class="zahl-circle">2</span> <strong>UNSERE LEISTUNGEN</strong></div>
-            </div>
-            <p style="font-size: 28px; margin-bottom: 35px; line-height: 1.4; color:#4F2F1C;">
-                Ganzkörper • Lymphdrainage • Anti-Cellulite<br>
-                Hot Stone • Ayurveda • Lomi Lomi
-            </p>
-            <div style="display: flex; gap: 25px; flex-wrap: wrap;">
-                <div>
-                    <span class="zahl-circle">3</span> <strong>IHRE VORTEILE</strong><br>
-                    🛋️ Mobiler Service<br>
-                    🎁 Alles inklusive<br>
-                    📅 Flexible Termine
-                </div>
-                <div>
-                    <span class="zahl-circle">4</span> <strong>JETZT</strong><br>
-                    💰 PREISE<br>
-                    📍 STANDORTE<br>
-                    ⭐ BEWERTUNGEN
-                </div>
-            </div>
-        </div>
-        <div class="footer-divider" style="font-size: 38px; font-weight: 800; border-top-color:#D9B48B;">
-            📞 KONTAKT<br>
-            <span style="font-size: 28px; font-weight: normal;">DM / WhatsApp / Anruf</span>
-        </div>
+<div class="header">
+    <h2>💆‍♀️ Instagram Carousel</h2>
+    <button class="btn-download" id="downloadZipBtn">📸 4 PNG & ZIP für Instagram</button>
+    <div style="margin-top: 10px;">
+        <span class="status" id="statusMsg">👉 Zum Exportieren klicken</span>
     </div>
 </div>
 
-<button class="btn-download" id="downloadZipBtn">📸 Создать 4 PNG и скачать ZIP</button>
-<div id="statusMsg" class="status">Готово к экспорту в Instagram Carousel</div>
+<div class="swipe-hint">←👉 Nach links wischen für alle 4 Slides</div>
+
+<div class="carousel-scroll">
+    <div class="carousel-container" id="carouselContainer">
+        <!-- Слайд 1: Preise -->
+        <div class="slide" id="slide1">
+            <div>
+                <h1>💆‍♀️ MASSAGE & PREISE</h1>
+                <div class="subhead">PROFESSIONELL & ENTSPANNEND</div>
+                <div style="margin-top: 35px;">
+                    <div class="price-item">✨ Ganzkörpermassage 60 Min — <span class="price-euro">60€</span></div>
+                    <div class="price-item">✨ Rückenmassage 40 Min — <span class="price-euro">35€</span></div>
+                    <div class="price-item">✨ Nacken & Schultern 40 Min — <span class="price-euro">40€</span></div>
+                    <div class="price-item">💧 Lymphdrainage 60 Min — <span class="price-euro">70€</span></div>
+                    <div class="price-item">🔥 Anti-Cellulite Massage 70 Min — <span class="price-euro">80€</span></div>
+                </div>
+            </div>
+            <div>
+                <div class="badge-gold">🌿 ALLES INKLUSIVE</div>
+                <div class="footer-divider">✅ Hochwertige Öle • Entspannung garantiert</div>
+            </div>
+        </div>
+
+        <!-- Слайд 2: Standorte -->
+        <div class="slide" id="slide2">
+            <div>
+                <h1>📍 STANDORTE</h1>
+                <div class="subhead" style="border-left-color:#B87C4F;">🚐 MOBILER SERVICE</div>
+                <div class="standorte-block">
+                    Essen • Wuppertal • Düsseldorf<br>Köln • Umgebung
+                </div>
+                <div style="font-size: 32px; margin: 25px 0; display: flex; gap: 15px; flex-wrap: wrap;">
+                    <span>🏠 Ich komme zu Ihnen nach Hause</span>
+                    <span>⏱️ BEQUEM & FLEXIBEL</span>
+                </div>
+            </div>
+            <div class="footer-divider">
+                📍 Termine nach Vereinbarung – ganz in deiner Nähe
+            </div>
+        </div>
+
+        <!-- Слайд 3: Sorglos-Paket -->
+        <div class="slide" id="slide3">
+            <div>
+                <h1>🎁 RUNDUM SORGLOS-PAKET</h1>
+                <div class="grid-2">
+                    <div class="check-item">✔️ Massagetisch</div>
+                    <div class="check-item">✔️ Professionelle Öle</div>
+                    <div class="check-item">✔️ Handtücher</div>
+                    <div class="check-item">✔️ Zubehör</div>
+                    <div class="check-item">✔️ Entspannung zu Hause</div>
+                    <div class="check-item">✔️ Zuverlässig & sicher</div>
+                </div>
+            </div>
+            <div>
+                <div class="badge-gold" style="background:#B87C4F; color:white;">🔥 JETZT TERMIN VEREINBAREN</div>
+                <div class="footer-divider">PROFESSIONELL & ZUVERLÄSSIG</div>
+            </div>
+        </div>
+
+        <!-- Слайд 4: Leistungen + Kontakt -->
+        <div class="slide" id="slide4">
+            <div>
+                <div style="display: flex; align-items: baseline; flex-wrap: wrap; gap: 20px; margin-bottom: 25px;">
+                    <div><span class="zahl-circle">1</span> <strong>MASSAGE bei dir</strong><br><span style="font-size: 26px;">ZU HAUSE</span></div>
+                    <div><span class="zahl-circle">2</span> <strong>UNSERE LEISTUNGEN</strong></div>
+                </div>
+                <p style="font-size: 28px; margin-bottom: 35px; line-height: 1.4; color:#4F2F1C;">
+                    Ganzkörper • Lymphdrainage • Anti-Cellulite<br>
+                    Hot Stone • Ayurveda • Lomi Lomi
+                </p>
+                <div style="display: flex; gap: 25px; flex-wrap: wrap;">
+                    <div>
+                        <span class="zahl-circle">3</span> <strong>IHRE VORTEILE</strong><br>
+                        🛋️ Mobiler Service<br>
+                        🎁 Alles inklusive<br>
+                        📅 Flexible Termine
+                    </div>
+                    <div>
+                        <span class="zahl-circle">4</span> <strong>JETZT</strong><br>
+                        💰 PREISE<br>
+                        📍 STANDORTE<br>
+                        ⭐ BEWERTUNGEN
+                    </div>
+                </div>
+            </div>
+            <div class="footer-divider" style="font-size: 38px; font-weight: 800; border-top-color:#D9B48B;">
+                📞 KONTAKT<br>
+                <span style="font-size: 28px; font-weight: normal;">DM / WhatsApp / Anruf</span>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script>
     (function() {
@@ -275,7 +322,7 @@
         const statusDiv = document.getElementById('statusMsg');
 
         downloadBtn.addEventListener('click', async () => {
-            statusDiv.innerText = '⏳ Создаём PNG... (0/4)';
+            statusDiv.innerText = '⏳ Erstelle PNGs... (0/4)';
             downloadBtn.disabled = true;
             const zip = new JSZip();
             
@@ -283,31 +330,29 @@
                 const slideElem = document.getElementById(slides[i].id);
                 if (!slideElem) continue;
                 
-                statusDiv.innerText = `🖼️ Рендеринг слайда ${i+1}/4 ...`;
+                statusDiv.innerText = `🖼️ Slide ${i+1}/4 wird gerendert...`;
                 try {
                     const canvas = await html2canvas(slideElem, {
-                        scale: 2,          // 2x для чёткости (1080*2 = 2160, но сохранит 1080 при ширине)
+                        scale: 2,
                         backgroundColor: null,
                         useCORS: false,
                         logging: false,
                         width: 1080,
                         height: 1080,
-                        onclone: (clonedDoc, element) => {
-                            // ничего дополнительно
-                        }
+                        windowWidth: 1080,
+                        windowHeight: 1080
                     });
-                    // конвертируем в PNG blob
                     const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
                     zip.file(slides[i].name, blob);
                 } catch(err) {
                     console.error(err);
-                    statusDiv.innerText = `❌ Ошибка на слайде ${i+1}`;
+                    statusDiv.innerText = `❌ Fehler bei Slide ${i+1}`;
                     downloadBtn.disabled = false;
                     return;
                 }
             }
             
-            statusDiv.innerText = '📦 Создаём ZIP-архив...';
+            statusDiv.innerText = '📦 Erstelle ZIP...';
             const zipBlob = await zip.generateAsync({ type: 'blob' });
             const link = document.createElement('a');
             const url = URL.createObjectURL(zipBlob);
@@ -318,7 +363,7 @@
             document.body.removeChild(link);
             URL.revokeObjectURL(url);
             
-            statusDiv.innerText = '✅ Готово! 4 PNG скачаны. Загружай как карусель в Instagram!';
+            statusDiv.innerText = '✅ Fertig! 4 PNGs heruntergeladen. Jetzt als Karussell in Instagram posten!';
             downloadBtn.disabled = false;
         });
     })();
